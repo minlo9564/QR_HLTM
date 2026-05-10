@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YUTILLENS Service Guide & User Manual</title>
+    <!-- 引入思源黑体 Noto Sans SC -->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+    <style>
+        /* 基础重置与页面背景 */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            background-color: #E8E4DF;
+            font-family: 'Noto Sans SC', sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 40px 20px;
+            max-width: 430px;
+            margin-left: auto;
+            margin-right: auto;
+            color: #000000; /* 全局文本色改为黑色 */
+        }
+
+        .page-label {
+            font-size: 16px; font-weight: 700; color: #000000;
+            letter-spacing: 3px; text-transform: uppercase;
+            margin-bottom: 10px; margin-top: 50px;
+        }
+        .page-label:first-child { margin-top: 0; }
+        .sub-label {
+            font-size: 12px; font-weight: 400; color: #000000;
+            margin-bottom: 20px; letter-spacing: 1px;
+        }
+
+        /* 通用卡片容器 */
+        .sheet {
+            width: 420px; 
+            background-color: #FFFFFF;
+            border-radius: 12px;
+            position: relative; overflow: hidden;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.1), 0 3px 5px rgba(0,0,0,0.05);
+            margin-bottom: 20px;
+        }
+
+        /* 内容区域 */
+        .content {
+            position: relative; z-index: 1;
+            padding: 50px 45px;
+            display: flex; flex-direction: column; text-align: left;
+        }
+
+        /* 顶部品牌标识 */
+        .header { margin-bottom: 30px; }
+        .brand-name { font-weight: 900; font-size: 24px; letter-spacing: 6px; color: #000000; margin-bottom: 6px; }
+        .header-sub { display: flex; align-items: center; gap: 12px; }
+        .slogan { font-weight: 300; font-size: 11px; color: #000000; letter-spacing: 2px;}
+        .header-line { flex-grow: 1; height: 1px; background-color: #000000; }
+
+        /* 段落通用样式 */
+        .section { margin-bottom: 25px; }
+        .section-title {
+            font-weight: 700; font-size: 11px; letter-spacing: 2px; color: #000000;
+            text-transform: uppercase; margin-bottom: 12px;
+        }
+        .text-main {
+            font-weight: 300; font-size: 11.5px; line-height: 1.8; color: #000000;
+            text-align: justify; text-justify: inter-word;
+        }
+
+        /* 核心信条模拟无色UV */
+        .core-belief {
+            font-weight: 700; font-size: 12px; line-height: 1.6; color: #000000;
+            margin-top: 12px; margin-bottom: 8px;
+            text-shadow: 0.5px 0.5px 0px rgba(255,255,255,0.8), -0.5px -0.5px 0px rgba(0,0,0,0.05);
+            text-align: justify; text-justify: inter-word;
+        }
+
+        /* 列表样式 */
+        .guide-list { list-style: none; margin-top: 5px; }
+        .guide-list li {
+            font-weight: 300; font-size: 11.5px; line-height: 1.8; color: #000000;
+            margin-bottom: 6px; padding-left: 15px; position: relative;
+            text-align: justify; text-justify: inter-word;
+        }
+        .guide-list li::before { content: "•"; position: absolute; left: 0; color: #000000; font-weight: 700; }
+        .list-bold { font-weight: 500; color: #000000; }
+
+        /* 步骤样式 - 图文混排优化 */
+        .steps-container { margin-top: 10px; }
+        .steps-images { display: flex; gap: 10px; margin-bottom: 10px; }
+        .step-item { margin-bottom: 8px; display: flex; gap: 10px; }
+        .step-num { font-weight: 700; color: #000000; font-size: 11px; line-height: 1.8; min-width: 15px; }
+        .step-text { font-weight: 300; font-size: 11.5px; line-height: 1.8; color: #000000; text-align: justify; text-justify: inter-word; }
+
+        /* 图片样式（直接使用真实图片，无需占位符） */
+        .product-diagram {
+            width: 100%; 
+            border-radius: 4px; 
+            margin-bottom: 15px; 
+            display: block;
+        }
+
+        /* 表格样式 */
+        .spec-table { width: 100%; border-collapse: collapse; margin-top: 10px; font-size: 11px; }
+        .spec-table th, .spec-table td { padding: 8px 0; text-align: left; border-bottom: 1px solid #E0DBD6; color: #000000; font-weight: 300; }
+        .spec-table th { width: 40%; font-weight: 500; color: #000000; }
+
+        /* 底部分割与反馈 */
+        .footer-section { border-top: 1px solid #D8D3CE; padding-top: 25px; margin-bottom: 40px; }
+        .footer-text { font-weight: 300; font-size: 11px; line-height: 1.8; color: #000000; margin-bottom: 15px; text-align: justify; text-justify: inter-word; }
+        .sign-off { margin-top: 20px; text-align: left; font-weight: 300; font-size: 11px; color: #000000;}
+        .contact-info { font-weight: 400; font-size: 10.5px; color: #000000; text-align: right; letter-spacing: 0.5px; }
+
+        /* 语言切换分割线 */
+        .lang-divider { border-top: 2px solid #000000; margin: 40px 0; position: relative; text-align: center; }
+        .lang-divider span {
+            position: absolute; top: -10px; left: 50%; transform: translateX(-50%);
+            background-color: #F5F0EB; padding: 0 15px;
+            font-weight: 700; font-size: 10px; letter-spacing: 3px; color: #000000;
+        }
+
+        /* 中文排版微调 */
+        .lang-zh .section-title { letter-spacing: 4px; }
+        .lang-zh .text-main, .lang-zh .footer-text, .lang-zh .step-text, .lang-zh .guide-list li { font-weight: 400; color: #000000; }
+        .lang-zh .core-belief { font-weight: 700; color: #000000; }
+
+        @media (max-width: 480px) {
+            .sheet { width: 95vw; }
+            .content { padding: 30px 25px; }
+            .brand-name { font-size: 20px; letter-spacing: 4px; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ========================================== -->
+    <!-- 文件一：服务指南 (Service Guide) -->
+    <!-- ========================================== -->
+    <div class="sheet">
+        <div class="content">
+            
+            <!-- 英文部分 -->
+            <div class="header">
+                <div class="brand-name">YUTILLENS</div>
+                <div class="header-sub">
+                    <div class="slogan">Never Miss the Shot</div>
+                    <div class="header-line"></div>
+                </div>
+            </div>
+
+            <div class="section">
+                <div class="section-title">Dear User</div>
+                <div class="text-main">
+                    Thank you for choosing YUTILLENS! We are dedicated to providing premium products and services, aiming to deliver a delightful user experience.
+                    <br><br>
+                    When searching for products that truly solve everyday pain points, we found many falling short. So, we decided to create exactly what we needed and share it with you. We hope YUTILLENS doesn't just solve our problems, but brings real convenience to your life, too.
+                </div>
+                <div class="core-belief">
+                    We believe great products can change lives.
+                </div>
+            </div>
+
+            <div class="section">
+                <div class="section-title">To protect your rights, we recommend</div>
+                <ul class="guide-list">
+                    <li><span class="list-bold">Unboxing Inspection:</span> Please verify that all products and accessories are complete and undamaged.</li>
+                    <li><span class="list-bold">Learn more about the product:</span> Before using the product for the first time, please read the product details carefully so you can quickly get the hang of it and make the most of its features.</li>
+                    <li><span class="list-bold">Proper storage:</span> We recommend retaining the product packaging and proof of purchase.</li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <div class="section-title">We are always here to support you</div>
+                <div class="footer-text">
+                    Your experience is our greatest motivation for continuous product improvement. For any product-related questions or concerns, please contact us via Amazon. We commit to providing professional assistance and solutions within 24 hours.
+                </div>
+                <div class="sign-off">
+                    Wishing you a pleasant life!<br>
+                    The YUTILLENS Team<br>
+                    yutitechnology@outlook.com
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- ========================================== -->
+    <!-- 文件二：产品说明书 (User Manual) -->
+    <!-- ========================================== -->
+    <div class="sheet">
+        <div class="content">
+            
+            <!-- 英文部分 -->
+            <div class="header">
+                <div class="brand-name">YUTILLENS</div>
+                <div class="header-sub">
+                    <div class="slogan">Camera Backpack Clip User Manual</div>
+                </div>
+            </div>
+
+            <div class="section">
+                <div class="section-title">Product Overview</div>
+                <!-- 第一张产品结构图 -->
+                <img src="https://t1.chatglm.cn/file/6a00446e73da0208f1b3a0bb.png?expired_at=1778834471&sign=60a93755f962e97ec2aff75f8a739e28&ext=png" alt="Product Structure Diagram 1" class="product-diagram">
+                
+                <!-- 第二张产品结构图 -->
+                <img src="https://t1.chatglm.cn/file/6a004ee7299619fb24a345c0.png?expired_at=1778837130&sign=9eb64048f1f946b66870b9512306675c&ext=png" alt="Product Structure Diagram 2 - Silicone Protection Pad, Unlock Button, Safety Button" class="product-diagram">
+                
+            </div>
+
+            <div class="section">
+                <div class="section-title">Installation and Usage</div>
+                <div class="steps-container">
+                    <div class="step-item">
+                        <div class="step-text">1. Open the locking knob and clamping base plate, then insert the backpack strap.</div>
+                    </div>
+                        <!-- 第一步图片 -->
+                        <img src="https://t1.chatglm.cn/file/6a00467b534dae2008fd7c0d.png?expired_at=1778834999&sign=7144e621e6e1255cdeb155ae82d90368&ext=png&x-oss-process=image/resize,w_1080/format,webp" alt="Step 1: Open the locking knob and clamping base plate, then insert the backpack strap" class="product-diagram">
+
+                    <div class="step-item">
+                        <div class="step-text">2. Close the backpack clip plate and engage the knob.</div>
+                    </div>
+                        <!-- 第二步图片 -->
+                        <img src="https://t1.chatglm.cn/file/6a00468673da0208f1b3a2d8.png?expired_at=1778834999&sign=bff0379b0f7dbed5c984a0649c7957c3&ext=png&x-oss-process=image/resize,w_1080/format,webp" alt="Step 2: Close the backpack clip plate and engage the knob" class="product-diagram">
+                    <div class="step-item">
+                        <div class="step-text">3. Adjust the knobs on both sides to lock the backpack strap.</div>
+                    </div>
+                        <!-- 第三步图片 -->
+                        <img src="https://t1.chatglm.cn/file/6a004690867b10d77f8fda98.png?expired_at=1778834999&sign=d04131325e6b4861e843277b81579e41&ext=png&x-oss-process=image/resize,w_1080/format,webp" alt="Step 3: Adjust the knobs on both sides to lock the backpack strap" class="product-diagram">
+                </div>
+            </div>
+
+            <div class="footer-section">
+                <div class="section-title">Product Specifications</div>
+                <table class="spec-table">
+                    <tr><th>Brand</th><td>YUTILLENS</td></tr>
+                    <tr><th>Product Name</th><td>Camera Backpack Clip</td></tr>
+                    <tr><th>Material</th><td>Aluminum Alloy,  Silicone</td></tr>
+                    <tr><th>Product Dimensions</th><td>4 × 1.9 × 1.1 in</td></tr>
+                    <tr><th>Product Weight</th><td>4.8 oz</td></tr>
+                    <tr><th>Product Load Capacity</th><td>66 lb</td></tr>
+                </table>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
